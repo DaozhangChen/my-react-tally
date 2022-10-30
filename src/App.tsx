@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss'
-import {Navigate, NavLink, Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import Detail from "./view/Detail";
 import TallyPage from "./view/TallyPage";
 import Analysis from "./view/Analysis";

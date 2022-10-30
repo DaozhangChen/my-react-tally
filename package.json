@@ -91,7 +91,9 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "npm:dart-sass"
+    "@types/webpack-env": "^1.18.0",
+    "node-sass": "npm:dart-sass",
+    "svgo-loader": "^3.0.3"
   },
   "jest": {
     "roots": [

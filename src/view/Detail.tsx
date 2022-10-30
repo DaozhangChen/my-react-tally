@@ -1,20 +1,8 @@
-import tally from '../icons/tally.svg'
-import styled from "styled-components";
-
-const Icon=styled.div`
-svg{
-  fill: blue;
-  height: 100px;
-}
-`
+import {ReactComponent as Tally} from '../icons/tally.svg'
 const Detail=()=>{
     return(
         <div>
-            <Icon>
-            <svg>
-                <use xlinkHref='#tally' />
-            </svg>
-            </Icon>
+            <Tally />
         </div>
     )
 }
