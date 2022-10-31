@@ -1,8 +1,6 @@
 
 A
 public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
-L
-src/components/BottomNav.tsx,8\e\8e996924500aa1521f4507cf9d0ee6abd6952ab2
 C
 src/icons/chart.svg,0\7\07cd001a23e219bd1fbb099b5683223dc2b33931
 C
