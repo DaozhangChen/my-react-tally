@@ -7,7 +7,6 @@ import NavButton from "./NavButton";
 const Wrapper=styled.div`
   display: flex;
   justify-content: space-around;
-  border: 1px solid red;
 `
 
 const BottomNav=()=>{
