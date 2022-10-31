@@ -1,6 +1,5 @@
 import Calculator from "./Calculator";
 import styled from "styled-components";
-
 const CalculatorWrapper=styled.div`
   flex-grow: 1;
 `
