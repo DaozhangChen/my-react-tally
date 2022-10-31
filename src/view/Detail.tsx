@@ -1,8 +1,10 @@
-import {ReactComponent as Tally} from '../icons/tally.svg'
+import Icon from "../components/Icon";
+
 const Detail=()=>{
     return(
         <div>
-            <Tally />
+            <Icon name='tally'/>
+            <Icon name='money'/>
         </div>
     )
 }
