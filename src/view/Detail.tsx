@@ -1,6 +1,7 @@
 import BottomNav from "../components/BottomNav";
 import React from "react";
 import styled from "styled-components";
+import Logo from "../components/Logo";
 
 const Wrapper=styled.div`
   display: flex;
@@ -8,8 +9,7 @@ const Wrapper=styled.div`
   justify-content: space-between;
   height: 100vh;
 `
-const Title=styled.header`
-height: 50px;
+const Header=styled.header`
   border: 1px solid red;
 `
 const TallyList=styled.main`
@@ -21,7 +21,9 @@ const TallyList=styled.main`
 const Detail=()=>{
     return(
         <Wrapper>
-            <Title >写点东西</Title>
+            <Header>
+                <Logo />
+            </Header>
             <TallyList >哈</TallyList>
             <BottomNav />
         </Wrapper>
