@@ -2,6 +2,7 @@ import BottomNav from "../components/BottomNav";
 import React from "react";
 import styled from "styled-components";
 import Logo from "../components/Logo";
+import TallyList from "../components/TallyList";
 
 const Wrapper=styled.div`
   display: flex;
@@ -10,11 +11,9 @@ const Wrapper=styled.div`
   height: 100vh;
 `
 const Header=styled.header`
-  border: 1px solid red;
 `
-const TallyList=styled.main`
+const TallyListWrapper=styled.main`
   flex-grow: 1;
-  border: 1px solid blue;
   overflow: auto;
 `
 
@@ -24,7 +23,9 @@ const Detail=()=>{
             <Header>
                 <Logo />
             </Header>
-            <TallyList >哈</TallyList>
+            <TallyListWrapper>
+                <TallyList />
+            </TallyListWrapper>
             <BottomNav />
         </Wrapper>
     )
