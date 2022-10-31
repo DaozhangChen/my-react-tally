@@ -17,7 +17,6 @@ function App() {
             <Route path="/" element={<Navigate to='/detail'/>}/>
             <Route path="*" element={<NotFound />}/>
         </Routes>
-
     </div>
   );
 }
