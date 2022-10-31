@@ -5,6 +5,7 @@ import Detail from "./view/Detail";
 import TallyPage from "./view/TallyPage";
 import Analysis from "./view/Analysis";
 import BottomNav from "./components/BottomNav";
+import NotFound from "./components/NotFound";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path="/tallyPage" element={<TallyPage />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/" element={<Navigate to='/detail'/>}/>
+            <Route path="*" element={<NotFound />}/>
         </Routes>
         <BottomNav />
     </div>
