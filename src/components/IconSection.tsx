@@ -5,10 +5,16 @@ const IconListWrapper=styled.div`
     min-height: 500px;
     overflow: auto;
 `
-const IconSection=()=>{
+type Props={
+    value:{name:string,value:string},
+    onChange:(tag:{name:string,value:string})=>void
+}
+const IconSection=(props:Props)=>{
     return(
         <IconListWrapper>
-            <MainList />
+            <MainList value={props.value}
+                      onChange={props.onChange}
+            />
         </IconListWrapper>
     )
 }

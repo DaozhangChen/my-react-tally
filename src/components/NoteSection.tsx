@@ -15,12 +15,16 @@ const Note=styled.div`
     outline: none;
   }
 `
-const NoteSection=()=>{
+type Props={
+    value:string,
+    onChange:(note:string)=>void
+}
+const NoteSection=(props:Props)=>{
     return(
         <Note>
             <Icon name='note'/>
             <span>备注：</span>
-            <input type='text' placeholder='写点备注吧~'/>
+            <input type='text' placeholder='写点备注吧~' onChange={(e)=>props.onChange(e.target.value)}/>
         </Note>
     )
 }

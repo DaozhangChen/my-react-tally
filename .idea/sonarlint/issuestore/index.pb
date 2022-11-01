@@ -41,12 +41,6 @@ C
 src/view/Detail.tsx,a\6\a6039a90ae8d00f4fae0945fbd6b3e6c7ce19f04
 L
 src/components/BottomNav.tsx,8\e\8e996924500aa1521f4507cf9d0ee6abd6952ab2
-K
-src/components/MainList.tsx,5\e\5e223d0a500c9779cf1e16f911237d0767ad2d18
-N
-src/components/IconSection.tsx,c\a\cae41a405581f851030feedfb3d7c7319d290904
-N
-src/components/NoteSection.tsx,0\a\0a5747b48710da39efae7a29f7776f165427eee6
 ;
 src/App.tsx,8\3\835da56f32df714aaed6285a5b7fc3a7807851e4
 M

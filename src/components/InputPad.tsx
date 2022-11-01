@@ -83,7 +83,6 @@ const Wrapper = styled.div`
 
 const InputPad = () => {
     const [amountNumber, _setAmountNumber] = useState('0')
-
     const setAmountNumber=(n:string)=>{
         const dotIndex = amountNumber.indexOf('.')
         if(n==='清空'){
@@ -116,7 +115,7 @@ const InputPad = () => {
         }
         _setAmountNumber(amountNumber + n)
     }
-    const {onChange}=useContext(InputNumber)
+    const {onChange,onSubmit}=useContext(InputNumber)
     useEffect(()=>{
         onChange(amountNumber)
     },[amountNumber])
@@ -133,7 +132,7 @@ const InputPad = () => {
         {text: '0', onClick: () => setAmountNumber('0')},
         {text: '.', onClick: () => setAmountNumber('.')},
         {text: '清空', onClick: () => setAmountNumber('清空')},
-        {text: '提交', onClick: () => setAmountNumber('ok')},
+        {text: '提交', onClick: () => onSubmit()},
     ]
     return (
         <Wrapper>
