@@ -3,7 +3,9 @@ import TagSection from "../components/TagSection";
 import IconSection from "../components/IconSection";
 import NoteSection from "../components/NoteSection";
 import InputSection from "../components/InputSection";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
+import {useUpdate} from "../hooks/useUpdate";
+import {useRecords} from "../hooks/useRecords";
 
 const Wrapper = styled.div`
   display: flex;
@@ -29,6 +31,7 @@ export const InputNumber = React.createContext({
 const TallyPage = () => {
     type Category = '收入' | '支出'
     type Selected = typeof selected
+    const {addBill}=useRecords()
     const [selected, setSelected] = useState({
         category: '收入' as Category,
         tagIds: 0,
@@ -37,33 +40,31 @@ const TallyPage = () => {
         note: ''
     })
     const onChange = (obj: Partial<Selected>) => {
+        console.log(obj)
+        console.log(selected)
         setSelected({
             ...selected,
             ...obj,
         })
     }
-    const isFistTime = useRef(true)
-    useEffect(() => {
-        console.log('执行了')
-        if (isFistTime.current) {
-            isFistTime.current = false
-            return
-        }
-        const bill = JSON.stringify(selected)
-        localStorage.setItem('bills', bill)
-    }, [selected.tagIds])
+    // useUpdate(()=>{
+    //    console.log('654')
+    //     console.log([selected.tagIds])
+    // },[selected.tagIds])
+    useEffect(()=>{
+        console.log('321')
+    },[[selected.tagIds]])
 
     const onSubmit = () => {
-        let tagIds
+        let count
         if (localStorage.getItem('maxId') === null) {
-            tagIds = 1
+            count = 1
         } else {
-            tagIds = Number(localStorage.getItem('maxId'))
+            count = Number(localStorage.getItem('maxId'))
         }
-        onChange({tagIds})
-        ++tagIds
-        const MaxId = JSON.stringify(tagIds)
-        localStorage.setItem('maxId', MaxId)
+        onChange({tagIds: count})  //这里是第一次改变tagId
+        ++count
+        localStorage.setItem('maxId', JSON.stringify(count))
     }
     return (
         <Wrapper>
