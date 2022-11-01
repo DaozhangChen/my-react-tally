@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import InputPad from "./InputPad";
+import {useContext} from "react";
+import {InputNumber} from "../view/TallyPage";
 
 const Wrapper=styled.div`
     height: 100%;
@@ -15,9 +17,10 @@ const Screen=styled.div`
 `
 
 const Calculator=()=>{
+    const {amount}=useContext(InputNumber)
     return(
         <Wrapper>
-            <Screen>654</Screen>
+            <Screen>{amount}</Screen>
             <InputPad />
         </Wrapper>
     )
