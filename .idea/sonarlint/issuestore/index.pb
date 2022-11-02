@@ -45,3 +45,13 @@ L
 src/App.tsx,8\3\835da56f32df714aaed6285a5b7fc3a7807851e4
 M
 src/components/TagSection.tsx,d\7\d7fa1b1df09f6401db10acf47f5ec088da002548
+N
+src/components/NoteSection.tsx,0\a\0a5747b48710da39efae7a29f7776f165427eee6
+O
+src/components/InputSection.tsx,d\2\d2f452d649888a5640d12c63e23e64ae52306527
+M
+src/components/Calculator.tsx,c\0\c02fd623592f03687984a24c0b6e11ecfcbde9eb
+N
+src/components/IconSection.tsx,c\a\cae41a405581f851030feedfb3d7c7319d290904
+K
+src/components/MainList.tsx,5\e\5e223d0a500c9779cf1e16f911237d0767ad2d18

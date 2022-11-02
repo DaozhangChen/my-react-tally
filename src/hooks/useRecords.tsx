@@ -1,5 +1,4 @@
-import {useEffect, useState} from "react";
-import {useUpdate} from "./useUpdate";
+import {useEffect, useRef, useState} from "react";
 
 type Records={
     category: '收入'|'支出',
@@ -12,11 +11,17 @@ type Records={
 type newRecords=Omit<Records, 'appendAt'>
 export const useRecords=()=>{
     const [records,setRecords]=useState<Records[]>([])
+    const isOnce=useRef(true)
     useEffect(()=>{
         setRecords(JSON.parse(localStorage.getItem('bills')||'[]'))
     },[])
-
-
+    useEffect(()=>{
+        if (isOnce.current){
+            isOnce.current=false
+            return
+        }
+        localStorage.setItem('bills',JSON.stringify(records))
+    },[records])
     const addBill=(newRecords:newRecords)=>{
         if (newRecords.tag.name===''||newRecords.tag.value===''){
             window.alert('请选择标签')

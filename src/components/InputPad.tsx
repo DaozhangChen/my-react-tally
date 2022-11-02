@@ -132,7 +132,7 @@ const InputPad = () => {
         {text: '0', onClick: () => setAmountNumber('0')},
         {text: '.', onClick: () => setAmountNumber('.')},
         {text: '清空', onClick: () => setAmountNumber('清空')},
-        {text: '提交', onClick: () => onSubmit},
+        {text: '提交', onClick: () => onSubmit()},
     ]
     return (
         <Wrapper>

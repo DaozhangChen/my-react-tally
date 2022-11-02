@@ -3,8 +3,7 @@ import TagSection from "../components/TagSection";
 import IconSection from "../components/IconSection";
 import NoteSection from "../components/NoteSection";
 import InputSection from "../components/InputSection";
-import React, {useEffect, useState} from "react";
-import {useUpdate} from "../hooks/useUpdate";
+import React, {useEffect, useRef, useState} from "react";
 import {useRecords} from "../hooks/useRecords";
 
 const Wrapper = styled.div`
@@ -40,20 +39,19 @@ const TallyPage = () => {
         note: ''
     })
     const onChange = (obj: Partial<Selected>) => {
-        console.log(obj)
-        console.log(selected)
         setSelected({
             ...selected,
             ...obj,
         })
     }
-    // useUpdate(()=>{
-    //    console.log('654')
-    //     console.log([selected.tagIds])
-    // },[selected.tagIds])
+    const isOnce=useRef(true)
     useEffect(()=>{
-        console.log('321')
-    },[[selected.tagIds]])
+        if (isOnce.current){
+            isOnce.current=false
+            return
+        }
+       addBill(selected)
+    },[selected.tagIds])
 
     const onSubmit = () => {
         let count
