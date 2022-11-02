@@ -24,7 +24,7 @@ const Detail=()=>{
                 <Logo />
             </Header>
             <TallyListWrapper>
-                <TallyList />
+             <TallyList />
             </TallyListWrapper>
             <BottomNav />
         </Wrapper>

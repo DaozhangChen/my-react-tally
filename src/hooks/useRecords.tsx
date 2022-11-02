@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 
-type Records={
+export type Records={
     category: '收入'|'支出',
     tagIds: number,
     tag: {name: string, value: string},

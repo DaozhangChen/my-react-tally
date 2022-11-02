@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
 
 const HeadNav = styled.header`
   display: flex;
@@ -16,12 +17,15 @@ const HeadNav = styled.header`
     }
   }
 
-  button {
+  a {
+    button {
+      background: inherit;
+      border: none;
+      padding: 15px 0;
+    }
     position: absolute;
     right: 20px;
-    background: inherit;
-    border: none;
-    padding: 15px 0;
+   
   }
 `
 type Props = {
@@ -47,7 +51,9 @@ const TagSection = (props: Props) => {
                     )
                 }
             </ul>
+            <NavLink to='/detail'>
             <button>取消</button>
+            </NavLink>
         </HeadNav>
     )
 }
