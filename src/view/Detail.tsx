@@ -1,7 +1,7 @@
 import BottomNav from "../components/BottomNav";
 import React from "react";
 import styled from "styled-components";
-import Logo from "../components/Logo";
+import LogoAndSheet from "../components/Logo";
 import TallyList from "../components/TallyList";
 
 const Wrapper=styled.div`
@@ -21,7 +21,7 @@ const Detail=()=>{
     return(
         <Wrapper>
             <Header>
-                <Logo />
+                <LogoAndSheet />
             </Header>
             <TallyListWrapper>
              <TallyList />

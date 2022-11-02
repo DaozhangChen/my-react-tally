@@ -25,10 +25,6 @@ D
 src/icons/grapes.svg,d\4\d4455ec32195abbd63f5f172c5826f5d1372a705
 G
 src/components/Icon.tsx,9\7\97721293487fc5150c28b94f0b5e650c2ee7ab68
-G
-src/components/Logo.tsx,0\7\07cb177d9eafdeaf782d611778dbd4f1d42f3734
-O
-src/components/BalanceSheet.tsx,9\7\974fccf194c78977ebadac94e555372393b2376a
 ;
 src/App.tsx,8\3\835da56f32df714aaed6285a5b7fc3a7807851e4
 N
@@ -37,7 +33,3 @@ O
 src/components/InputSection.tsx,d\2\d2f452d649888a5640d12c63e23e64ae52306527
 M
 src/components/Calculator.tsx,c\0\c02fd623592f03687984a24c0b6e11ecfcbde9eb
-N
-src/components/IconSection.tsx,c\a\cae41a405581f851030feedfb3d7c7319d290904
-K
-src/components/MainList.tsx,5\e\5e223d0a500c9779cf1e16f911237d0767ad2d18

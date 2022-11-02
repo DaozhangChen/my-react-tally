@@ -26,23 +26,25 @@ export const InputNumber = React.createContext({
     onSubmit: onSubmit2
 })
 
+type Category = '收入' | '支出'
+export const initData={
+    category: '收入' as Category,
+    tagIds: 0,
+    tag: {name: '', value: ''},
+    amount: '0',
+    note: ''
+}
 
 const TallyPage = () => {
-    type Category = '收入' | '支出'
+
     type Selected = typeof selected
     const {addBill}=useRecords()
-    const [selected, setSelected] = useState({
-        category: '收入' as Category,
-        tagIds: 0,
-        tag: {name: '', value: ''},
-        amount: '0',
-        note: ''
-    })
+    const [selected, setSelected] = useState(initData)
     const onChange = (obj: Partial<Selected>) => {
-        setSelected({
+        setSelected(()=>({
             ...selected,
             ...obj,
-        })
+        }))
     }
     const isOnce=useRef(true)
     useEffect(()=>{
@@ -50,19 +52,24 @@ const TallyPage = () => {
             isOnce.current=false
             return
         }
-       addBill(selected)
+        if (selected.tagIds===0){ //防止重置时再次提交
+            return;
+        }
+        addBill(selected)
+
     },[selected.tagIds])
 
+
     const onSubmit = () => {
-        let count
+        let maxId
         if (localStorage.getItem('maxId') === null) {
-            count = 1
+            maxId = 1
         } else {
-            count = Number(localStorage.getItem('maxId'))
+            maxId = Number(localStorage.getItem('maxId'))
         }
-        onChange({tagIds: count})  //这里是第一次改变tagId
-        ++count
-        localStorage.setItem('maxId', JSON.stringify(count))
+        onChange({tagIds: maxId})
+        ++maxId
+        localStorage.setItem('maxId', JSON.stringify(maxId))
     }
     return (
         <Wrapper>

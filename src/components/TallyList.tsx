@@ -69,7 +69,6 @@ const TallyList = () => {
         setBetterBalance(lastData)
     }, [times])
 
-
     return (
         <Wrapper>
             {
