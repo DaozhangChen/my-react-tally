@@ -26,64 +26,71 @@ const List = styled.div`
 `
 type DateAndBalance = {
     date: string,
-    balance: number
+    amount: number,
+    category: "收入" | "支出"
+}
+type BetterDate={
+    date:string,
+    balance:number
 }
 const TallyList = () => {
     const [bills, setBills] = useState<Records[]>([])
-    const [times, setTimes] = useState<string[]>([])
-    const [oneDate, setOneDate] = useState<string[]>([])
-    const [balance, setBalance] = useState<DateAndBalance[]>([])
+    const [times, setTimes] = useState<DateAndBalance[]>([])
+    const [betterBalance, setBetterBalance] = useState<BetterDate[]>([])
     useEffect(() => {
         setBills(JSON.parse(localStorage.getItem('bills') || '[]'))
     }, [])
     useEffect(() => {
         bills?.forEach(item => {
                 let betterTime = item.appendAt.substring(0, 10)
-                setTimes((time) => {
-                    return [...time, betterTime]
+                let betterAmount=parseFloat(item.amount)
+                let dateAndAmount={date:betterTime,amount:betterAmount,category:item.category}
+                setTimes((value) => {
+                    return [...value, dateAndAmount]
                 })
             }
         )
     }, [bills])
     useEffect(() => {
-        console.log(times)
-        const noRepeatArray = Array.from(new Set(times))
-        setOneDate(noRepeatArray)
+        const lastData=times.reduce((oldValue:BetterDate[],newValue:DateAndBalance)=>{
+            const findData=oldValue.find((arr)=>arr.date===newValue.date)
+            if (findData){
+                if (newValue.category==='支出'){
+                    findData.balance=findData.balance - newValue.amount
+                    return oldValue
+                }else{
+                    findData.balance=findData.balance + newValue.amount
+                    return oldValue
+                }
+            }else{
+                return [...oldValue,{balance:newValue.amount,date:newValue.date}]
+            }
+        },[] as BetterDate[])
+        setBetterBalance(lastData)
     }, [times])
-    useEffect(() => {
-        // const balanceValue=oneDate.map(date =>
-        //     bills.filter(bill => bill.appendAt.substring(0, 10) === date)?.
-        //     reduce((previousValue, currentValue:Records)=>{
-        //             if (previousValue===undefined){return }
-        //             if (currentValue.category==='支出'){
-        //                return  previousValue - parseFloat(currentValue.amount)
-        //             }else if (currentValue.category==='收入'){
-        //                 return  previousValue + parseFloat(currentValue.amount)
-        //             }
-        //         },0 as number|undefined)
-        // )
-        // setBalance(balanceValue)
-    }, [oneDate])
 
 
     return (
         <Wrapper>
             {
-                oneDate.map(date => {
-                        return <div key={date}>
+                betterBalance.map(bar => {
+                        return <div key={bar.date}>
                             <DateBar>
-                                <span>{date}</span>
-                                <span>支出：￥7000</span>
+                                <span>{bar.date}</span>
+                                <span>总支出：{bar.balance}</span>
                             </DateBar>
                             {
-                                bills.filter(bill => bill.appendAt.substring(0, 10) === date)
+                                bills.filter(bill => bill.appendAt.substring(0, 10) === bar.date)
                                     .map(newBill =>
                                         <List key={newBill.tagIds}>
                                             <ul>
                                                 <li>
                                                     <Icon name={newBill.tag.name}/>
                                                     <span className='text'>{newBill.tag.value}</span>
-                                                    <span>{newBill.amount}</span>
+                                                    <span>{newBill.category==='支出'
+                                                        ? `-${newBill.amount}`
+                                                        :`+${newBill.amount}`}
+                                                    </span>
                                                 </li>
                                             </ul>
                                         </List>
