@@ -25,8 +25,6 @@ D
 src/icons/grapes.svg,d\4\d4455ec32195abbd63f5f172c5826f5d1372a705
 G
 src/components/Icon.tsx,9\7\97721293487fc5150c28b94f0b5e650c2ee7ab68
-;
-src/App.tsx,8\3\835da56f32df714aaed6285a5b7fc3a7807851e4
 N
 src/components/NoteSection.tsx,0\a\0a5747b48710da39efae7a29f7776f165427eee6
 O

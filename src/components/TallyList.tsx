@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Icon from "./Icon";
 import {Records} from "../hooks/useRecords";
 import {BetterDate, Selected} from "../view/Detail";
+import routePath from "../router/RoutePath";
+import {useNavigate} from "react-router-dom";
 
 const Wrapper = styled.div`
   padding: 0 10px;
@@ -32,6 +34,11 @@ type Props={
 const TallyList = (props:Props) => {
     const betterBalance=props.dateAndBalance
     const bills=props.bills
+    const navigate=useNavigate()
+    const onEditTag=(id:number)=>{
+        console.log(id)
+        navigate(`/tagEdit?id=${id}`)
+    }
     return (
         <Wrapper>
             {
@@ -49,7 +56,10 @@ const TallyList = (props:Props) => {
                                     bill.appendAt.substring(0, 10) === bar.date
                                 )
                                     .map(newBill =>
-                                        <List key={newBill.tagIds}>
+                                        <List key={newBill.tagIds}
+                                              onClick={
+                                            ()=> onEditTag(newBill.tagIds)
+                                        }>
                                             <ul>
                                                 <li>
                                                     <Icon name={newBill.tag.name}/>

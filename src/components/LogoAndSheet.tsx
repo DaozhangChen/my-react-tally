@@ -23,7 +23,7 @@ const Wrapper=styled.div`
 type Props={
     selected:Selected
     setSelected:(obj:Selected)=>void
-    bills:Records[],
+    bills:Records[]
 }
 const LogoAndSheet=(props:Props)=>{
     return(
