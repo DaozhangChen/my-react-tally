@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import {Selected} from "../view/Detail";
+import SelectTime from "./SelectTime";
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -14,15 +15,17 @@ const DateWrapper = styled.div`
   align-items: center;
   justify-content: center;
   border-right: 1px solid black;
-
-  .selectYear {
-    font-size: 15px;
+  select{
     border: none;
     outline: none;
   }
-
-  span {
+  .selectYear {
+    font-size: 15px;
+   
+  }
+  .selectMonth {
     font-size: 20px;
+    appearance:none;
   }
 `
 const Income = styled.div`
@@ -72,39 +75,20 @@ const BalanceSheet = (props: Props) => {
     return (
         <Wrapper>
             <DateWrapper>
-                <select name='selectYear'
-                        className='selectYear'
-                        value={selected.year}
-                        onChange={e => setSelected({
-                            ...selected,
-                            year: parseInt(e.target.value)
-                        })}
-                >
-                    {
-                        allYear.map(year =>
-                            <option key={year}
-                                    value={year}
-                            >
-                                {year + '年'}
-                            </option>)
-                    }
-                </select>
-                <select name='selectMonth'
-                        value={selected.month}
-                        onChange={e => setSelected({
-                            ...selected,
-                            month: parseInt(e.target.value)
-                        })}>
-                    {
-                        allMonth.map(month =>
-                            <option key={month}
-                                    value={month}
-                            >
-                                {month + '月'}
-                            </option>
-                        )
-                    }
-                </select>
+                <SelectTime name='selectYear'
+                            value={selected.year}
+                            onChange={e=>setSelected({
+                                ...selected,
+                                year: parseInt(e.target.value)
+                            })}
+                            array={allYear} />
+                <SelectTime name='selectMonth'
+                            value={selected.month}
+                            onChange={e=>setSelected({
+                                ...selected,
+                                month: parseInt(e.target.value)
+                            })}
+                            array={allMonth} />
             </DateWrapper>
             <Income>
                 <h3>收入</h3>
