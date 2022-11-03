@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import Icon from "./Icon";
-import {useEffect, useState} from "react";
 import {Records} from "../hooks/useRecords";
-import {BetterDate} from "../view/Detail";
+import {BetterDate, Selected} from "../view/Detail";
 
 const Wrapper = styled.div`
   padding: 0 10px;
@@ -27,7 +26,8 @@ const List = styled.div`
 `
 type Props={
     dateAndBalance:BetterDate[],
-    bills:Records[]
+    bills:Records[],
+    selectValue:Selected
 }
 const TallyList = (props:Props) => {
     const betterBalance=props.dateAndBalance
@@ -35,14 +35,19 @@ const TallyList = (props:Props) => {
     return (
         <Wrapper>
             {
-                betterBalance.map(bar => {
+                betterBalance.filter(date=>
+                    date.date.substring(0,4)===props.selectValue.year.toString()
+                    &&date.date.substring(5,7)===props.selectValue.month.toString())
+                    .map(bar => {
                         return <div key={bar.date}>
                             <DateBar>
                                 <span>{bar.date}</span>
                                 <span>总支出：{bar.balance}</span>
                             </DateBar>
                             {
-                                bills.filter(bill => bill.appendAt.substring(0, 10) === bar.date)
+                                bills.filter(bill =>
+                                    bill.appendAt.substring(0, 10) === bar.date
+                                )
                                     .map(newBill =>
                                         <List key={newBill.tagIds}>
                                             <ul>

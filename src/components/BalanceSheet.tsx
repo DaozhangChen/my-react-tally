@@ -15,8 +15,10 @@ const DateWrapper = styled.div`
   justify-content: center;
   border-right: 1px solid black;
 
-  h3 {
+  .selectYear {
     font-size: 15px;
+    border: none;
+    outline: none;
   }
 
   span {
@@ -46,47 +48,63 @@ const Expend = styled.div`
     font-size: 20px;
   }
 `
-type Props={
-    selected:Selected
-    setSelected:(obj:Selected)=>void
+type Props = {
+    selected: Selected
+    setSelected: (obj: Selected) => void
 }
-const BalanceSheet = (props:Props) => {
+const BalanceSheet = (props: Props) => {
     const [allYear, setAllYear] = useState<number[]>([])
-    const {selected,setSelected}=props
-    const currentYear = new Date().getFullYear()
+    const allMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    const {selected, setSelected} = props
     useEffect(() => {
-        let beforeFiveYear = currentYear - 5
+        let beforeFiveYear = selected.year - 5
         for (let i = 0; i < 10; i++) {
-           let cycleYear=beforeFiveYear++
+            let cycleYear = beforeFiveYear++
             setAllYear(allYears =>
                 [...allYears, cycleYear]
             )
         }
     }, [])
-    useEffect(()=>{
+
+    useEffect(() => {
         console.log(allYear)
-    },[allYear])
+    }, [allYear])
     return (
         <Wrapper>
             <DateWrapper>
-                <h3>
-                    <select name='selectYear'
-                            value={selected.year}
-                            onChange={e=>setSelected({
-                                ...selected,
-                                year:parseInt(e.target.value)
-                            })}
-                    >
-                        {
-                            allYear.map(year=><option key={year}
-                                                      value={year}
+                <select name='selectYear'
+                        className='selectYear'
+                        value={selected.year}
+                        onChange={e => setSelected({
+                            ...selected,
+                            year: parseInt(e.target.value)
+                        })}
+                >
+                    {
+                        allYear.map(year =>
+                            <option key={year}
+                                    value={year}
                             >
-                                {year+'年'}
+                                {year + '年'}
                             </option>)
-                        }
-                    </select>
-                </h3>
-                <span>10月</span>
+                    }
+                </select>
+                <select name='selectMonth'
+                        value={selected.month}
+                        onChange={e => setSelected({
+                            ...selected,
+                            month: parseInt(e.target.value)
+                        })}>
+                    {
+                        allMonth.map(month =>
+                            <option key={month}
+                                    value={month}
+                            >
+                                {month + '月'}
+                            </option>
+                        )
+                    }
+                </select>
             </DateWrapper>
             <Income>
                 <h3>收入</h3>
