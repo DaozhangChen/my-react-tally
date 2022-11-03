@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Icon from "./Icon";
 import {useEffect, useState} from "react";
 import {Records} from "../hooks/useRecords";
+import {BetterDate} from "../view/Detail";
 
 const Wrapper = styled.div`
   padding: 0 10px;
@@ -24,51 +25,13 @@ const List = styled.div`
     }
   }
 `
-type DateAndBalance = {
-    date: string,
-    amount: number,
-    category: "收入" | "支出"
+type Props={
+    dateAndBalance:BetterDate[],
+    bills:Records[]
 }
-type BetterDate={
-    date:string,
-    balance:number
-}
-const TallyList = () => {
-    const [bills, setBills] = useState<Records[]>([])
-    const [times, setTimes] = useState<DateAndBalance[]>([])
-    const [betterBalance, setBetterBalance] = useState<BetterDate[]>([])
-    useEffect(() => {
-        setBills(JSON.parse(localStorage.getItem('bills') || '[]'))
-    }, [])
-    useEffect(() => {
-        bills?.forEach(item => {
-                let betterTime = item.appendAt.substring(0, 10)
-                let betterAmount=parseFloat(item.amount)
-                let dateAndAmount={date:betterTime,amount:betterAmount,category:item.category}
-                setTimes((value) => {
-                    return [...value, dateAndAmount]
-                })
-            }
-        )
-    }, [bills])
-    useEffect(() => {
-        const lastData=times.reduce((oldValue:BetterDate[],newValue:DateAndBalance)=>{
-            const findData=oldValue.find((arr)=>arr.date===newValue.date)
-            if (findData){
-                if (newValue.category==='支出'){
-                    findData.balance=findData.balance - newValue.amount
-                    return oldValue
-                }else{
-                    findData.balance=findData.balance + newValue.amount
-                    return oldValue
-                }
-            }else{
-                return [...oldValue,{balance:newValue.amount,date:newValue.date}]
-            }
-        },[] as BetterDate[])
-        setBetterBalance(lastData)
-    }, [times])
-
+const TallyList = (props:Props) => {
+    const betterBalance=props.dateAndBalance
+    const bills=props.bills
     return (
         <Wrapper>
             {

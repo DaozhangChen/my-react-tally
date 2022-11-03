@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Icon from "./Icon";
 import BalanceSheet from "./BalanceSheet";
+import {Selected} from "../view/Detail";
 
 
 const Wrapper=styled.div`
@@ -18,15 +19,18 @@ const Wrapper=styled.div`
     font-size: 28px;
   }
 `
-
-const Logo=()=>{
+type Props={
+    selected:Selected
+    setSelected:(obj:Selected)=>void
+}
+const LogoAndSheet=(props:Props)=>{
     return(
         <Wrapper>
             <Icon name='grapes'/>
             <h1>青提记账</h1>
-            <BalanceSheet />
+            <BalanceSheet selected={props.selected} setSelected={props.setSelected} />
         </Wrapper>
     )
 }
 
-export default Logo
+export default LogoAndSheet

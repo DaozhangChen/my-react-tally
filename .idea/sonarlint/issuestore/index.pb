@@ -33,3 +33,15 @@ O
 src/components/InputSection.tsx,d\2\d2f452d649888a5640d12c63e23e64ae52306527
 M
 src/components/Calculator.tsx,c\0\c02fd623592f03687984a24c0b6e11ecfcbde9eb
+L
+src/components/NavButton.tsx,c\d\cd5b2306d65057f482d51cb13de77b9bc251cf5b
+L
+src/components/BottomNav.tsx,8\e\8e996924500aa1521f4507cf9d0ee6abd6952ab2
+E
+src/view/Analysis.tsx,3\c\3c31b20369aa1e5f221ad2f0fa94613f2cffc28a
+F
+src/react-app-env.d.ts,4\a\4a7b99bdbee5792679d347b6474463bf5e14b66d
+M
+src/components/TagSection.tsx,d\7\d7fa1b1df09f6401db10acf47f5ec088da002548
+N
+src/components/IconSection.tsx,c\a\cae41a405581f851030feedfb3d7c7319d290904
