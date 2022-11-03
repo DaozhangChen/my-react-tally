@@ -77,7 +77,10 @@ const Detail = () => {
     return (
         <Wrapper>
             <Header>
-                <LogoAndSheet selected={selected} setSelected={setSelected}/>
+                <LogoAndSheet selected={selected}
+                              setSelected={setSelected}
+                              bills={bills}
+                />
             </Header>
             <TallyListWrapper>
                 <TallyList
