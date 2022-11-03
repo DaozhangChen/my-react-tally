@@ -37,7 +37,7 @@ const TallyList = (props:Props) => {
     const navigate=useNavigate()
     const onEditTag=(id:number)=>{
         console.log(id)
-        navigate(`/tagEdit?id=${id}`)
+        navigate(`/tagEdit/${id}`)
     }
     return (
         <Wrapper>

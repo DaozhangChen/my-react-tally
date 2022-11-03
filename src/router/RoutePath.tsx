@@ -12,7 +12,7 @@ const RoutePath=()=>{
             <Route path="/detail" element={<Detail />} />
             <Route path="/tallyPage" element={<TallyPage />} />
             <Route path="/analysis" element={<Analysis />} />
-            <Route path='/tagEdit' element={<TagEdit />}/>
+            <Route path='/tagEdit/:id' element={<TagEdit />}/>
             <Route path="/" element={<Navigate to='/detail'/>}/>
             <Route path="*" element={<NotFound />}/>
         </Routes>
