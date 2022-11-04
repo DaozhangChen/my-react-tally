@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Icon from "./Icon";
 import {Records} from "../hooks/useRecords";
 import {BetterDate, Selected} from "../view/Detail";
-import routePath from "../router/RoutePath";
 import {useNavigate} from "react-router-dom";
+
 
 const Wrapper = styled.div`
   padding: 0 10px;
