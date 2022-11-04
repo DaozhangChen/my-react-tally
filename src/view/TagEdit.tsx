@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `
 const Header = styled.header`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,7 +32,6 @@ const Header = styled.header`
 
 `
 const Main = styled.main`
-  border: 1px solid blue;
   flex-grow: 1;
   overflow: auto;
 
@@ -86,17 +84,22 @@ const Main = styled.main`
   }
 `
 const Footer = styled.footer`
-  border: 1px solid green;
-
+  button:first-child{
+    border-right: 1px solid gray;
+  }
+  button:nth-child(2){
+    border-right:none ;
+  }
   button {
     width: 50%;
     border-top: 1px solid gray;
-    border-right: none;
+    
     border-bottom: none;
     border-left: none;
     background: inherit;
     padding: 12px 0;
     font-size: 18px;
+    
   }
 `
 const NoTagPage=styled.div`
@@ -130,12 +133,17 @@ const TagEdit = () => {
     const [needData, setNeedData] = useState<Records>()
     const hasError = useRef(false)
     const isItExist=useRef(true)
+    const isOnce=useRef(true)
 
     useEffect(() => {
         setAllBill(JSON.parse(localStorage.getItem('bills')!))
     }, [])
 
     useEffect(() => {
+        if (isOnce.current){
+            isOnce.current=false
+            return
+        }
         if (allBill.filter(bill => bill.tagIds.toString() === params.id)[0]===undefined){
             isItExist.current=false
         }
