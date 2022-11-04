@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Icon from "../components/Icon";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import {Records} from "../hooks/useRecords";
 import {useParams} from "react-router-dom";
 import computationTime from "../helper/computationTime";
@@ -80,6 +80,7 @@ const TagEdit = () => {
     useEffect(() => {
         const {yearArray, dateArray}: timeArray = computationTime(needData?.appendAt?.substring(0, 10))
         setTimeArray({yearArray, dateArray})
+        console.log(needData)
     }, [needData])
     const onChange = (obj: Partial<Records>) => {
         if (!needData) {
@@ -89,6 +90,28 @@ const TagEdit = () => {
             ...needData,
             ...obj
         }))
+    }
+    const onChangTime = (timeType: string, value: string, state: { appendAt: string | undefined }) => {
+        if (!state.appendAt) {
+            return {appendAt: new Date().toISOString()}
+        }
+        switch (timeType) {
+            case 'year':
+                return {appendAt: state.appendAt.replace(/\d{4}/g, value)}
+            case 'month':
+
+                return {
+                    appendAt: state.appendAt.replace(
+                        /(\d{4})-(\d{2})-(\d{2})/g, `$1\-${value}\-$3`)
+                }
+            case 'date':
+                return {
+                    appendAt: state.appendAt.replace(
+                        /(\d{4})-(\d{2})-(\d{2})/g, `$1\-$2\-${value}`)
+                }
+            default:
+                throw new Error()
+        }
     }
     return (
         <Wrapper>
@@ -117,7 +140,8 @@ const TagEdit = () => {
                     <li>
                         <span>日期</span>
                         <span>
-                            <select>
+                            <select value={needData?.appendAt.substring(0, 4)} onChange={(e) =>
+                                onChange(onChangTime('year', e.target.value, {appendAt: needData?.appendAt}))}>
                                 {
                                     timeArray?.yearArray.map(year =>
                                         <option key={year} value={year}>
@@ -126,7 +150,8 @@ const TagEdit = () => {
                                 }
                             </select>
                             年
-                            <select>
+                            <select value={needData?.appendAt.substring(5, 7)} onChange={(e) =>
+                                onChange(onChangTime('month', (e.target.value).padStart(2, '0'), {appendAt: needData?.appendAt}))}>
 {
     monthArray.map(month =>
         <option key={month} value={month}>
@@ -135,7 +160,8 @@ const TagEdit = () => {
 }
                             </select>
                             月
-                            <select>
+                            <select value={needData?.appendAt.substring(8, 10)} onChange={(e) =>
+                                onChange(onChangTime('date', (e.target.value).padStart(2, '0'), {appendAt: needData?.appendAt}))}>
 {
     timeArray?.dateArray.map(date =>
         <option key={date} value={date}>
