@@ -2,7 +2,7 @@ import MainList from "./MainList";
 import styled from "styled-components";
 
 const IconListWrapper=styled.div`
-    min-height: 500px;
+    min-height: 400px;
     overflow: auto;
 `
 type Props={

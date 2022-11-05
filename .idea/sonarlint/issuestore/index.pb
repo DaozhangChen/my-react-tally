@@ -27,8 +27,6 @@ G
 src/components/Icon.tsx,9\7\97721293487fc5150c28b94f0b5e650c2ee7ab68
 N
 src/components/NoteSection.tsx,0\a\0a5747b48710da39efae7a29f7776f165427eee6
-O
-src/components/InputSection.tsx,d\2\d2f452d649888a5640d12c63e23e64ae52306527
 M
 src/components/Calculator.tsx,c\0\c02fd623592f03687984a24c0b6e11ecfcbde9eb
 L
@@ -41,13 +39,7 @@ M
 src/components/TagSection.tsx,d\7\d7fa1b1df09f6401db10acf47f5ec088da002548
 ;
 src/App.tsx,8\3\835da56f32df714aaed6285a5b7fc3a7807851e4
-H
-src/router/RoutePath.tsx,e\9\e9d701d16875b6bb79d7a2d10c65bc8c220f6e9c
-O
-src/components/BalanceSheet.tsx,9\7\974fccf194c78977ebadac94e555372393b2376a
 K
 src/components/InputPad.tsx,5\7\57781f69a7979cbb17e1802639e0b475d7363da5
-M
-src/components/SelectTime.tsx,c\d\cdc3e2224419a8818667c25787d5ae2284a168dc
 N
 src/helper/computationTime.tsx,b\1\b1a23b2944618242f30be8ba728d1dceaedcba10

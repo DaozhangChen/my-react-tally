@@ -81,6 +81,7 @@ const Main = styled.main`
   .setNote {
     border: none;
     outline: none;
+    width: 75vw;
   }
 `
 const Footer = styled.footer`

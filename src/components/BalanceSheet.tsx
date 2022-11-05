@@ -19,6 +19,7 @@ const DateWrapper = styled.div`
   select{
     border: none;
     outline: none;
+    background: inherit;
   }
   .selectYear {
     font-size: 15px;

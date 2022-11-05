@@ -28,7 +28,7 @@ export const InputNumber = React.createContext({
 
 type Category = '收入' | '支出'
 export const initData={
-    category: '收入' as Category,
+    category: '支出' as Category,
     tagIds: 0,
     tag: {name: '', value: ''},
     amount: '0',
