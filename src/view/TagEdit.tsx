@@ -154,7 +154,6 @@ const TagEdit = () => {
     useEffect(() => {
         const {yearArray, dateArray}: timeArray = computationTime(needData?.appendAt?.substring(0, 10))
         setTimeArray({yearArray, dateArray})
-        console.log(needData)
     }, [needData])
 
     const onChange = (obj: Partial<Records>) => {
@@ -176,6 +175,10 @@ const TagEdit = () => {
                 obj={amount:'0'}
             }else{
                 obj = {amount: parseInt(obj.amount).toString()}
+            }
+            if(obj.amount!.length>13){
+                window.alert('有效数字不能超过13位')
+                obj={amount:'0'}
             }
             if (isNaN(parseFloat(obj.amount!))){
                 window.alert('输入数字格式错误')
@@ -200,11 +203,13 @@ const TagEdit = () => {
             return;
         }
         if (!hasError.current) {
-            console.log('执行')
             const otherBills = allBill.filter(bill => bill.tagIds.toString() !== params.id)
+            console.log(needData)
             setAllBill([...otherBills, needData])
             window.alert('编辑成功')
-            console.log(otherBills)
+            //执行异步操作，使allBill能够成功执行
+            setTimeout(()=>navigate('/detail',{replace:true}),0)
+
         }
     }
 

@@ -21,11 +21,12 @@ const TallyListWrapper = styled.main`
 export type DateAndBalance = {
     date: string,
     amount: number,
-    category: "收入" | "支出"
+    category: "收入" | "支出",
+    note:string
 }
 export type BetterDate = {
     date: string,
-    balance: number
+    balance: number,
 }
 export type Selected = {
     year: number,
@@ -47,7 +48,7 @@ const Detail = () => {
         bills?.forEach(item => {
                 let betterTime = item.appendAt.substring(0, 10)
                 let betterAmount = parseFloat(item.amount)
-                let dateAndAmount = {date: betterTime, amount: betterAmount, category: item.category}
+                let dateAndAmount = {date: betterTime, amount: betterAmount, category: item.category,note: item.note}
                 setTimes((value) => {
                     return [...value, dateAndAmount]
                 })

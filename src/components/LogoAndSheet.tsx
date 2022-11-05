@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Icon from "./Icon";
 import BalanceSheet from "./BalanceSheet";
-import {BetterDate, Selected} from "../view/Detail";
+import { Selected} from "../view/Detail";
 import {Records} from "../hooks/useRecords";
 
 

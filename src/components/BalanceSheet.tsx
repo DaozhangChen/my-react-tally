@@ -15,7 +15,6 @@ const DateWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid black;
   select{
     border: none;
     outline: none;
@@ -30,27 +29,39 @@ const DateWrapper = styled.div`
     appearance:none;
   }
 `
-const Income = styled.div`
+const Balance=styled.div`
+  display: flex;
+  justify-content: space-between;
   flex-grow: 1;
+  flex-shrink: 1;
+`
+const Income = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 0 15px;
 
   h3 {
     font-size: 15px;
   }
 
-  span {
+  span{
+    width: 31vw;
     font-size: 20px;
+    display: inline-block;
+    overflow: scroll;
   }
 `
 const Expend = styled.div`
-  flex-grow: 1;
-
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
   h3 {
     font-size: 15px;
   }
-
   span {
+    width: 31vw;
     font-size: 20px;
+    overflow: scroll;
   }
 `
 type Props = {
@@ -114,14 +125,16 @@ const BalanceSheet = (props: Props) => {
                             })}
                             array={allMonth} />
             </DateWrapper>
+            <Balance >
             <Income>
                 <h3>收入</h3>
-                <span>{balance.income}</span>
+                <span >{balance.income}</span>
             </Income>
             <Expend>
                 <h3>支出</h3>
                 <span>{balance.expend}</span>
             </Expend>
+            </Balance>
         </Wrapper>
     )
 }

@@ -38,7 +38,8 @@ type Props={
 }
 const MainList=(props:Props)=>{
     const navigate=useNavigate()
-    const [tagList,setTagList]=useState([...incomeIcon,...expendIcon])
+    const addBills=JSON.parse(localStorage.getItem('addBills')||'')
+    const [tagList,setTagList]=useState([...incomeIcon,...expendIcon,...addBills])
     const [select,setSelect]=useState('')
     const onClick=(name:string,value:string)=>{
         setSelect(name)

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const IconListWrapper=styled.div`
     min-height: 400px;
+  flex-grow: 1;
     overflow: auto;
 `
 type Props={
