@@ -33,7 +33,7 @@ export const useRecords=()=>{
         }
         const bill={...newRecords,appendAt:new Date().toISOString()}
         setRecords([...records,bill])
-        window.confirm('记账成功')
+        window.alert('记账成功')
         window.location.reload()
         return true
     }

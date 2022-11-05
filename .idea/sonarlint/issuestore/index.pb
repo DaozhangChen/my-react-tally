@@ -33,18 +33,12 @@ M
 src/components/Calculator.tsx,c\0\c02fd623592f03687984a24c0b6e11ecfcbde9eb
 L
 src/components/NavButton.tsx,c\d\cd5b2306d65057f482d51cb13de77b9bc251cf5b
-L
-src/components/BottomNav.tsx,8\e\8e996924500aa1521f4507cf9d0ee6abd6952ab2
 E
 src/view/Analysis.tsx,3\c\3c31b20369aa1e5f221ad2f0fa94613f2cffc28a
 F
 src/react-app-env.d.ts,4\a\4a7b99bdbee5792679d347b6474463bf5e14b66d
 M
 src/components/TagSection.tsx,d\7\d7fa1b1df09f6401db10acf47f5ec088da002548
-N
-src/components/IconSection.tsx,c\a\cae41a405581f851030feedfb3d7c7319d290904
-O
-src/components/LogoAndSheet.tsx,d\4\d43b1a7690b0e1553d801ae3472442cc1b7358ec
 ;
 src/App.tsx,8\3\835da56f32df714aaed6285a5b7fc3a7807851e4
 H
@@ -53,7 +47,7 @@ O
 src/components/BalanceSheet.tsx,9\7\974fccf194c78977ebadac94e555372393b2376a
 K
 src/components/InputPad.tsx,5\7\57781f69a7979cbb17e1802639e0b475d7363da5
-K
-src/components/MainList.tsx,5\e\5e223d0a500c9779cf1e16f911237d0767ad2d18
 M
 src/components/SelectTime.tsx,c\d\cdc3e2224419a8818667c25787d5ae2284a168dc
+N
+src/helper/computationTime.tsx,b\1\b1a23b2944618242f30be8ba728d1dceaedcba10

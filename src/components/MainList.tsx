@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Icon from "./Icon";
 import {useState} from "react";
+import {incomeIcon} from "../base_icon_value/incomeIcon";
+import {expendIcon} from "../base_icon_value/expendIcon";
 
 const Wrapper=styled.div`
 padding: 10px 10px;
@@ -31,10 +33,10 @@ const List=styled.div`
 type Props={
     value:{name:string,value:string},
     onChange:(tag:{name:string,value:string})=>void
+    category:'收入'|'支出'
 }
 const MainList=(props:Props)=>{
-    const [tagList,setTagList]=useState([{name:'money',value:'记账'},
-        {name:'tally',value:'钱'}])
+    const [tagList,setTagList]=useState([...incomeIcon,...expendIcon])
     const [select,setSelect]=useState('')
     const onClick=(name:string,value:string)=>{
         setSelect(name)
@@ -44,8 +46,8 @@ const MainList=(props:Props)=>{
         <Wrapper>
             <List>
                 <ul>
-                    {
-                        tagList.map(tag=>
+                    {tagList.filter(item=>item.category===props.category)
+                        .map(tag=>
                         <li key={tag.name} onClick={()=>onClick(tag.name,tag.value)} className={tag.name===select?'selected':''}>
                             <Icon name={tag.name} />
                             <span>{tag.value}</span>

@@ -1,0 +1,18 @@
+export const expendIcon=[
+    {name:'food',value:'餐饮',category:'支出'},
+    {name:'shopping',value:'购物',category:'支出'},
+    {name:'traffic',value:'交通',category:'支出'},
+    {name:'accommodation',value:'住宿',category:'支出'},
+    {name:'daily',value:'日常',category:'支出'},
+    {name:'learn',value:'学习',category:'支出'},
+    {name:'entertainment',value:'娱乐',category:'支出'},
+    {name:'makeup',value:'美妆',category:'支出'},
+    {name:'tourism',value:'旅游',category:'支出'},
+    {name:'medical',value:'医疗',category:'支出'},
+    {name:'communication',value:'通讯',category:'支出'},
+    {name:'fuel',value:'油费',category:'支出'},
+    {name:'water',value:'水费',category:'支出'},
+    {name:'electricity',value:'电费',category:'支出'},
+    {name:'membership',value:'会员',category:'支出'},
+    {name:'gas',value:'燃气费',category:'支出'},
+]

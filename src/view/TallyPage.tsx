@@ -77,6 +77,7 @@ const TallyPage = () => {
                         onChange={category => onChange({category})}
             />
             <IconSection value={selected.tag}
+                         category={selected.category}
                          onChange={tag => onChange({tag})}
             />
             <NoteSection value={selected.note}
