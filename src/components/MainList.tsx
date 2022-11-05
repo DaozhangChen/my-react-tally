@@ -3,6 +3,7 @@ import Icon from "./Icon";
 import {useState} from "react";
 import {incomeIcon} from "../base_icon_value/incomeIcon";
 import {expendIcon} from "../base_icon_value/expendIcon";
+import {useNavigate} from "react-router-dom";
 
 const Wrapper=styled.div`
 padding: 10px 10px;
@@ -36,6 +37,7 @@ type Props={
     category:'收入'|'支出'
 }
 const MainList=(props:Props)=>{
+    const navigate=useNavigate()
     const [tagList,setTagList]=useState([...incomeIcon,...expendIcon])
     const [select,setSelect]=useState('')
     const onClick=(name:string,value:string)=>{
@@ -54,10 +56,16 @@ const MainList=(props:Props)=>{
                         </li>
                         )
                     }
-                    <li>
-                        <Icon name='add'/>
-                        <span>添加</span>
-                    </li>
+                    {
+                        props.category==='支出'
+                            ?
+                            <li onClick={()=>navigate('/tagAdd')}>
+                            <Icon name='add'/>
+                            <span>添加</span>
+                        </li>
+                            :null
+                    }
+
                 </ul>
             </List>
         </Wrapper>
