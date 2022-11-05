@@ -27,8 +27,6 @@ G
 src/components/Icon.tsx,9\7\97721293487fc5150c28b94f0b5e650c2ee7ab68
 N
 src/components/NoteSection.tsx,0\a\0a5747b48710da39efae7a29f7776f165427eee6
-M
-src/components/Calculator.tsx,c\0\c02fd623592f03687984a24c0b6e11ecfcbde9eb
 L
 src/components/NavButton.tsx,c\d\cd5b2306d65057f482d51cb13de77b9bc251cf5b
 E
