@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import Icon from "../components/Icon";
-import {type} from "os";
-import {addIcon} from "../base_icon_value/addIcon";
-import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import { addIcon } from "../base_icon_value/addIcon";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Wrapper=styled.div`
-height: 100vh;
+const Wrapper = styled.div`
+  height: 100vh;
   display: flex;
   flex-direction: column;
 `
-const Header=styled.header`
+const Header = styled.header`
     display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,7 +28,7 @@ const Header=styled.header`
     margin-right: 10px;
   }
 `
-const Nav=styled.nav`
+const Nav = styled.nav`
     display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,11 +39,11 @@ const Nav=styled.nav`
     align-items: center;
   }
 `
-const Main=styled.main`
+const Main = styled.main`
   flex-grow: 1;
   overflow: auto;
 `
-const ListSection=styled.section`
+const ListSection = styled.section`
     div{
       text-align: center;
       padding: 10px 0;
@@ -74,88 +73,90 @@ const ListSection=styled.section`
     }
   }
 `
-type addBill={
-    name:string,
-    value:string,
-    category:'支出'
+type addBill = {
+  name: string,
+  value: string,
+  category: '支出'
 }
 
-const TagAdd=()=>{
-    const navigate=useNavigate()
-    const billType=['餐饮','购物','娱乐','交通','医疗']
-    const [select,setSelect]=useState({
-        name:'',
-        value:'',
-        category:'支出'
-    })
-    const [addBills,setAddBills]=useState<addBill[]>([])
-    useEffect(()=>{
-        if (!localStorage.getItem('addBills')){
-            return
-        }else{
-           const allAddBills:addBill[]=JSON.parse(localStorage.getItem('addBills')!)
-            setAddBills(allAddBills)
-        }
-    },[])
-    const onSubmit=()=>{
-        if (addBills.find(item=>item.name===select.name)){
-            window.alert('该标签已经存在，无需再次添加')
-        }else{
-            localStorage.setItem('addBills',JSON.stringify([...addBills,select]))
-            setAddBills(JSON.parse(localStorage.getItem('addBills')!))
-            window.alert('添加成功')
-            window.location.reload()
-        }
+const TagAdd = () => {
+  const navigate = useNavigate()
+  const billType = ['餐饮', '购物', '娱乐', '交通', '医疗']
+  const [select, setSelect] = useState({
+    name: '',
+    value: '',
+    category: '支出'
+  })
+  const [addBills, setAddBills] = useState<addBill[]>([])
+  useEffect(() => {
+    if (!localStorage.getItem('addBills')) {
+      return
+    } else {
+      const allAddBills: addBill[] = JSON.parse(localStorage.getItem('addBills')!)
+      setAddBills(allAddBills)
     }
-    return(
-        <Wrapper>
-            <Header>
-                <span className='titleText'>
-                    <span onClick={()=>navigate('/tallyPage',{replace:true})}>
-                    <Icon name='back' />
-                    </span>
-                    <span>添加支出类别</span>
-                </span>
-                <button onClick={onSubmit}>完成</button>
-            </Header>
-            <Nav>
-                <span className='navIcon'>
-                    <span>选中标签：</span>
-                    <Icon name={select.name} />
-                </span>
-                <span>{select.value}</span>
-            </Nav>
-            <Main>
+  }, [])
+  const onSubmit = () => {
+    if (addBills.find(item => item.name === select.name)) {
+      window.alert('该标签已经存在，无需再次添加')
+    } else if (select.name === '' || select.value === '') {
+      window.alert('该标签为空')
+    } else {
+      localStorage.setItem('addBills', JSON.stringify([...addBills, select]))
+      setAddBills(JSON.parse(localStorage.getItem('addBills')!))
+      window.alert('添加成功')
+      window.location.reload()
+    }
+  }
+  return (
+    <Wrapper>
+      <Header>
+        <span className='titleText'>
+          <span onClick={() => navigate('/tallyPage', { replace: true })}>
+            <Icon name='back' />
+          </span>
+          <span>添加支出类别</span>
+        </span>
+        <button onClick={onSubmit}>完成</button>
+      </Header>
+      <Nav>
+        <span className='navIcon'>
+          <span>选中标签：</span>
+          <Icon name={select.name} />
+        </span>
+        <span>{select.value}</span>
+      </Nav>
+      <Main>
+        {
+          billType.map(topType =>
+            <ListSection key={topType}>
+              <div>{topType}</div>
+              <ul>
                 {
-                    billType.map(topType=>
-                        <ListSection key={topType}>
-                        <div>{topType}</div>
-                        <ul>
-                            {
-                                addIcon.filter(tag=>tag.type===topType)
-                                    .map(item=>
-                                        <li key={item.name}
-                                            className={select.name===item.name?'selected':''}
-                                            onClick={()=>setSelect({
-                                                name:item.name,
-                                                value:item.value,
-                                                category:'支出'
-                                            }
-                                          )
-                                        }
-                                        >
-                                        <Icon name={item.name} />
-                                        <span>{item.value}</span>
-                                    </li>
-                                    )
-                            }
-                        </ul>
-                    </ListSection>
+                  addIcon.filter(tag => tag.type === topType)
+                    .map(item =>
+                      <li key={item.name}
+                        className={select.name === item.name ? 'selected' : ''}
+                        onClick={() => setSelect({
+                          name: item.name,
+                          value: item.value,
+                          category: '支出'
+                        }
+                        )
+                        }
+                      >
+                        <Icon name={item.name} />
+                        <span>{item.value}</span>
+                      </li>
                     )
                 }
-            </Main>
-        </Wrapper>
-    )
+              </ul>
+            </ListSection>
+          )
+        }
+      </Main>
+    </Wrapper>
+  )
 }
 
 export default TagAdd

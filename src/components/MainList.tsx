@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import Icon from "./Icon";
-import {useState} from "react";
-import {incomeIcon} from "../base_icon_value/incomeIcon";
-import {expendIcon} from "../base_icon_value/expendIcon";
-import {useNavigate} from "react-router-dom";
+import { useState } from "react";
+import { incomeIcon } from "../base_icon_value/incomeIcon";
+import { expendIcon } from "../base_icon_value/expendIcon";
+import { useNavigate } from "react-router-dom";
 
-const Wrapper=styled.div`
+const Wrapper = styled.div`
 padding: 10px 10px;
 `
-const List=styled.div`
+const List = styled.div`
     ul{
       display: flex;
       flex-wrap: wrap;
@@ -31,42 +31,41 @@ const List=styled.div`
       }
     }
 `
-type Props={
-    value:{name:string,value:string},
-    onChange:(tag:{name:string,value:string})=>void
-    category:'收入'|'支出'
+type Props = {
+    value: { name: string, value: string },
+    onChange: (tag: { name: string, value: string }) => void
+    category: '收入' | '支出'
 }
-const MainList=(props:Props)=>{
-    const navigate=useNavigate()
-    const addBills=JSON.parse(localStorage.getItem('addBills')||'')
-    const [tagList,setTagList]=useState([...incomeIcon,...expendIcon,...addBills])
-    const [select,setSelect]=useState('')
-    const onClick=(name:string,value:string)=>{
+const MainList = (props: Props) => {
+    const navigate = useNavigate()
+    const addBills = JSON.parse(localStorage.getItem('addBills') || '')
+    const [tagList] = useState([...incomeIcon, ...expendIcon, ...addBills])  //问题所在
+    const [select, setSelect] = useState('')
+    const onClick = (name: string, value: string) => {
         setSelect(name)
-        props.onChange({name,value})
+        props.onChange({ name, value })
     }
-    return(
+    return (
         <Wrapper>
             <List>
                 <ul>
-                    {tagList.filter(item=>item.category===props.category)
-                        .map(tag=>
-                        <li key={tag.name} onClick={()=>onClick(tag.name,tag.value)} className={tag.name===select?'selected':''}>
-                            <Icon name={tag.name} />
-                            <span>{tag.value}</span>
-                        </li>
+                    {tagList.filter(item => item.category === props.category)
+                        .map(tag =>
+                            <li key={tag.name} onClick={() => onClick(tag.name, tag.value)} className={tag.name === select ? 'selected' : ''}>
+                                <Icon name={tag.name} />
+                                <span>{tag.value}</span>
+                            </li>
                         )
                     }
                     {
-                        props.category==='支出'
+                        props.category === '支出'
                             ?
-                            <li onClick={()=>navigate('/tagAdd')}>
-                            <Icon name='add'/>
-                            <span>添加</span>
-                        </li>
-                            :null
+                            <li onClick={() => navigate('/tagAdd')}>
+                                <Icon name='add' />
+                                <span>添加</span>
+                            </li>
+                            : null
                     }
-
                 </ul>
             </List>
         </Wrapper>

@@ -37,7 +37,43 @@ M
 src/components/TagSection.tsx,d\7\d7fa1b1df09f6401db10acf47f5ec088da002548
 ;
 src/App.tsx,8\3\835da56f32df714aaed6285a5b7fc3a7807851e4
-K
-src/components/InputPad.tsx,5\7\57781f69a7979cbb17e1802639e0b475d7363da5
 N
 src/helper/computationTime.tsx,b\1\b1a23b2944618242f30be8ba728d1dceaedcba10
+L
+src/components/BottomNav.tsx,8\e\8e996924500aa1521f4507cf9d0ee6abd6952ab2
+K
+src/helper/onChangeTime.tsx,3\2\32798037de147e1e2cd2513e081f84747760f984
+R
+"src/base_icon_value/incomeIcon.tsx,d\6\d64657243888d482c4e0d42e3c8ae8ab2054b4a3
+O
+src/components/InputSection.tsx,d\2\d2f452d649888a5640d12c63e23e64ae52306527
+M
+src/components/SelectTime.tsx,c\d\cdc3e2224419a8818667c25787d5ae2284a168dc
+H
+src/router/RoutePath.tsx,e\9\e9d701d16875b6bb79d7a2d10c65bc8c220f6e9c
+R
+"src/base_icon_value/expendIcon.tsx,8\c\8ca6f36ac80b4d9bce69e237dfe7fcd1936de232
+O
+src/base_icon_value/addIcon.tsx,7\c\7c8c8dabe6f341bb4dfac0c3c63b1e965cb9bfdd
+K
+src/components/MainList.tsx,5\e\5e223d0a500c9779cf1e16f911237d0767ad2d18
+N
+src/components/IconSection.tsx,c\a\cae41a405581f851030feedfb3d7c7319d290904
+F
+src/view/TallyPage.tsx,e\5\e52693e2c7a07b4ce19c5317ae9a52e8e1badb6b
+C
+src/view/TagAdd.tsx,c\1\c14dd8654186d19c2724e250a713f9e9144983b3
+D
+src/view/TagEdit.tsx,b\3\b36a987eac06a360342b87bf8ce8e87717b75a56
+O
+src/components/BalanceSheet.tsx,9\7\974fccf194c78977ebadac94e555372393b2376a
+C
+src/view/Detail.tsx,a\6\a6039a90ae8d00f4fae0945fbd6b3e6c7ce19f04
+O
+src/components/LogoAndSheet.tsx,d\4\d43b1a7690b0e1553d801ae3472442cc1b7358ec
+L
+src/components/TallyList.tsx,b\1\b1de086e0c95ab4952bd0a241ba84f5e61a3cec7
+M
+src/components/Calculator.tsx,c\0\c02fd623592f03687984a24c0b6e11ecfcbde9eb
+K
+src/components/InputPad.tsx,5\7\57781f69a7979cbb17e1802639e0b475d7363da5

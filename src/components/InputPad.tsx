@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {useContext, useEffect, useState} from "react";
-import {InputNumber} from "../view/TallyPage";
+import { useContext, useEffect, useState } from "react";
+import { InputNumber } from "../view/TallyPage";
 
 const Wrapper = styled.div`
   flex-grow: 1;
@@ -82,69 +82,69 @@ const Wrapper = styled.div`
 `
 
 const InputPad = () => {
-    const [amountNumber, _setAmountNumber] = useState('0')
-    const setAmountNumber=(n:string)=>{
-        const dotIndex = amountNumber.indexOf('.')
-        if(n==='清空'){
-            _setAmountNumber('0')
-            return;
-        }
-        if (amountNumber.length >= 13) {
-            return
-        }
-        if (dotIndex >= 0 && amountNumber.length - dotIndex > 2) {
-            return
-        }
-        if (n==='.'){
-            if (dotIndex>=0){
-                return;
-            }
-        }else if (n==='0'){
-            if (dotIndex===-1){
-                if (amountNumber==='0'){
-                    return;
-                }
-            }
-        }
-        if (n!=='0' && amountNumber==='0'){
-            if (n==='.'){
-                return;
-            }
-            _setAmountNumber(n)
-            return;
-        }
-        _setAmountNumber(amountNumber + n)
+  const [amountNumber, _setAmountNumber] = useState('0')
+  const setAmountNumber = (n: string) => {
+    const dotIndex = amountNumber.indexOf('.')
+    if (n === '清空') {
+      _setAmountNumber('0')
+      return;
     }
-    const {onChange,onSubmit}=useContext(InputNumber)
-    useEffect(()=>{
-        onChange(amountNumber)
-    },[amountNumber])
-    const inputNumberList = [
-        {text: '1', onClick: () => setAmountNumber('1')},
-        {text: '2', onClick: () => setAmountNumber('2')},
-        {text: '3', onClick: () => setAmountNumber('3')},
-        {text: '4', onClick: () => setAmountNumber('4')},
-        {text: '5', onClick: () => setAmountNumber('5')},
-        {text: '6', onClick: () => setAmountNumber('6')},
-        {text: '7', onClick: () => setAmountNumber('7')},
-        {text: '8', onClick: () => setAmountNumber('8')},
-        {text: '9', onClick: () => setAmountNumber('9')},
-        {text: '0', onClick: () => setAmountNumber('0')},
-        {text: '.', onClick: () => setAmountNumber('.')},
-        {text: '清空', onClick: () => setAmountNumber('清空')},
-        {text: '提交', onClick: () => onSubmit()},
-    ]
-    return (
-        <Wrapper>
-            <div className='buttons'>
-                {inputNumberList.map(button =>
-                    <button key={button.text}
-                            onClick={button.onClick}>
-                        {button.text}
-                    </button>
-                )}
-            </div>
-        </Wrapper>
-    )
+    if (amountNumber.length >= 13) {
+      return
+    }
+    if (dotIndex >= 0 && amountNumber.length - dotIndex > 2) {
+      return
+    }
+    if (n === '.') {
+      if (dotIndex >= 0) {
+        return;
+      }
+    } else if (n === '0') {
+      if (dotIndex === -1) {
+        if (amountNumber === '0') {
+          return;
+        }
+      }
+    }
+    if (n !== '0' && amountNumber === '0') {
+      if (n === '.') {
+        return;
+      }
+      _setAmountNumber(n)
+      return;
+    }
+    _setAmountNumber(amountNumber + n)
+  }
+  const { onChange, onSubmit } = useContext(InputNumber)
+  useEffect(() => {
+    onChange(amountNumber)
+  }, [amountNumber])
+  const inputNumberList = [
+    { text: '1', onClick: () => setAmountNumber('1') },
+    { text: '2', onClick: () => setAmountNumber('2') },
+    { text: '3', onClick: () => setAmountNumber('3') },
+    { text: '4', onClick: () => setAmountNumber('4') },
+    { text: '5', onClick: () => setAmountNumber('5') },
+    { text: '6', onClick: () => setAmountNumber('6') },
+    { text: '7', onClick: () => setAmountNumber('7') },
+    { text: '8', onClick: () => setAmountNumber('8') },
+    { text: '9', onClick: () => setAmountNumber('9') },
+    { text: '0', onClick: () => setAmountNumber('0') },
+    { text: '.', onClick: () => setAmountNumber('.') },
+    { text: '清空', onClick: () => setAmountNumber('清空') },
+    { text: '提交', onClick: () => onSubmit() },
+  ]
+  return (
+    <Wrapper>
+      <div className='buttons'>
+        {inputNumberList.map(button =>
+          <button key={button.text}
+            onClick={button.onClick}>
+            {button.text}
+          </button>
+        )}
+      </div>
+    </Wrapper>
+  )
 }
 export default InputPad
