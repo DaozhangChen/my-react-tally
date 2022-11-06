@@ -58,7 +58,6 @@ const Detail = () => {
     useEffect(() => {
         const lastData = times.reduce((oldValue: BetterDate[], newValue: DateAndBalance) => {
             const findData = oldValue.find((arr) => arr.date === newValue.date)
-            console.log(findData)
             if (findData) {
                 if (newValue.category === '支出') {
                     findData.balance -= newValue.amount
@@ -76,12 +75,8 @@ const Detail = () => {
                 }
             }
         }, [] as BetterDate[])
-        console.log(lastData)
         setBetterBalance(lastData)
     }, [times])
-    useEffect(() => {
-        console.log(selected)
-    }, [selected])
     return (
         <Wrapper>
             <Header>

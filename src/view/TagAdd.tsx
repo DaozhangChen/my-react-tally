@@ -105,7 +105,7 @@ const TagAdd = () => {
       localStorage.setItem('addBills', JSON.stringify([...addBills, select]))
       setAddBills(JSON.parse(localStorage.getItem('addBills')!))
       window.alert('添加成功')
-      window.location.reload()
+      navigate('/tallyPage',{replace:true})
     }
   }
   return (

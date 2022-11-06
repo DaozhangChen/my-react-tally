@@ -2,8 +2,6 @@
 A
 public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
 C
-src/icons/chart.svg,0\7\07cd001a23e219bd1fbb099b5683223dc2b33931
-C
 src/icons/money.svg,e\b\ebfc6b77be8c756499ed5b6c6ff7c515a83e58f8
 C
 src/icons/tally.svg,b\5\b5964a5b99818e14a45e55b2a3ab15c6bcc7564e
@@ -29,8 +27,6 @@ N
 src/components/NoteSection.tsx,0\a\0a5747b48710da39efae7a29f7776f165427eee6
 L
 src/components/NavButton.tsx,c\d\cd5b2306d65057f482d51cb13de77b9bc251cf5b
-E
-src/view/Analysis.tsx,3\c\3c31b20369aa1e5f221ad2f0fa94613f2cffc28a
 F
 src/react-app-env.d.ts,4\a\4a7b99bdbee5792679d347b6474463bf5e14b66d
 M
@@ -55,25 +51,3 @@ R
 "src/base_icon_value/expendIcon.tsx,8\c\8ca6f36ac80b4d9bce69e237dfe7fcd1936de232
 O
 src/base_icon_value/addIcon.tsx,7\c\7c8c8dabe6f341bb4dfac0c3c63b1e965cb9bfdd
-K
-src/components/MainList.tsx,5\e\5e223d0a500c9779cf1e16f911237d0767ad2d18
-N
-src/components/IconSection.tsx,c\a\cae41a405581f851030feedfb3d7c7319d290904
-F
-src/view/TallyPage.tsx,e\5\e52693e2c7a07b4ce19c5317ae9a52e8e1badb6b
-C
-src/view/TagAdd.tsx,c\1\c14dd8654186d19c2724e250a713f9e9144983b3
-D
-src/view/TagEdit.tsx,b\3\b36a987eac06a360342b87bf8ce8e87717b75a56
-O
-src/components/BalanceSheet.tsx,9\7\974fccf194c78977ebadac94e555372393b2376a
-C
-src/view/Detail.tsx,a\6\a6039a90ae8d00f4fae0945fbd6b3e6c7ce19f04
-O
-src/components/LogoAndSheet.tsx,d\4\d43b1a7690b0e1553d801ae3472442cc1b7358ec
-L
-src/components/TallyList.tsx,b\1\b1de086e0c95ab4952bd0a241ba84f5e61a3cec7
-M
-src/components/Calculator.tsx,c\0\c02fd623592f03687984a24c0b6e11ecfcbde9eb
-K
-src/components/InputPad.tsx,5\7\57781f69a7979cbb17e1802639e0b475d7363da5

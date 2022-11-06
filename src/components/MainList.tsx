@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Icon from "./Icon";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { incomeIcon } from "../base_icon_value/incomeIcon";
 import { expendIcon } from "../base_icon_value/expendIcon";
 import { useNavigate } from "react-router-dom";
@@ -38,8 +38,18 @@ type Props = {
 }
 const MainList = (props: Props) => {
     const navigate = useNavigate()
-    const addBills = JSON.parse(localStorage.getItem('addBills') || '')
-    const [tagList] = useState([...incomeIcon, ...expendIcon, ...addBills])  //问题所在
+    const [addBills,setAddBills]=useState([])
+    useEffect(()=>{
+        if (localStorage.getItem('addBills')){
+            setAddBills( JSON.parse(localStorage.getItem('addBills')!))
+        }else{
+            setAddBills([])
+        }
+    },[])
+    useEffect(()=>{
+        setTagList([...tagList,...addBills])
+    },[addBills])
+    const [tagList,setTagList] = useState([...incomeIcon, ...expendIcon, ...addBills])
     const [select, setSelect] = useState('')
     const onClick = (name: string, value: string) => {
         setSelect(name)

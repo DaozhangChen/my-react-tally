@@ -161,7 +161,6 @@ const TagEdit = () => {
             return
         }
         if (obj.amount) {
-            console.log(obj.amount)
             if (obj.amount.indexOf('.') !== -1 && obj.amount!=='.' && obj.amount.indexOf('.')===obj.amount.lastIndexOf('.')) {
                 obj = {amount: obj.amount}
                 if (obj.amount!.length >= obj.amount!.indexOf('.') + 2 &&obj.amount!.length < obj.amount!.indexOf('.') + 3) {
@@ -185,7 +184,6 @@ const TagEdit = () => {
                 obj={amount:'0'}
             }
         }
-        console.log(obj.appendAt)
         setNeedData(() => ({
             ...needData,
             ...obj
@@ -204,7 +202,6 @@ const TagEdit = () => {
         }
         if (!hasError.current) {
             const otherBills = allBill.filter(bill => bill.tagIds.toString() !== params.id)
-            console.log(needData)
             setAllBill([...otherBills, needData])
             window.alert('编辑成功')
             //执行异步操作，使allBill能够成功执行
