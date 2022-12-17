@@ -5,6 +5,7 @@ import { Records } from "../hooks/useRecords";
 import { useNavigate, useParams } from "react-router-dom";
 import computationTime from "../helper/computationTime";
 import { onChangTime } from "../helper/onChangeTime";
+import { Key, ReactElement, JSXElementConstructor, ReactFragment } from "react";
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -267,7 +268,7 @@ const TagEdit = () => {
                   <select value={needData?.appendAt.substring(0, 4)} onChange={(e) =>
                     onChange(onChangTime('year', e.target.value, { appendAt: needData?.appendAt }))}>
                     {
-                      timeArray?.yearArray.map(year =>
+                      timeArray?.yearArray.map((year: boolean | Key | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | null | undefined) =>
                         <option key={year} value={year}>
                           {year}
                         </option>)

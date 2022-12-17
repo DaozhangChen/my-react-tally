@@ -2,8 +2,11 @@ import MainList from "./MainList";
 import styled from "styled-components";
 
 const IconListWrapper = styled.div`
-    min-height: 400px;
-  flex-grow: 1;
+  @media(max-height: 750px){
+    height: 350px;
+    overflow: auto;
+  }
+  height: 450px;
     overflow: auto;
 `
 type Props = {
