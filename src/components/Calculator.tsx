@@ -14,6 +14,7 @@ const Screen = styled.div`
   line-height: 40px;
   font-size: 25px;
   padding: 0 15px;
+  color: var(--main-purple);
 `
 
 const Calculator = () => {

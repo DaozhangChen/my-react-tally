@@ -26,8 +26,8 @@ const List = styled.div`
         }
       }
       .selected{
-        color: red;
-        fill: red;
+        color: var(--green-deep);
+        fill:  var(--green-deep);
       }
     }
 `

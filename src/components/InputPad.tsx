@@ -19,6 +19,12 @@ const Wrapper = styled.div`
     grid-auto-rows: 48px;
     grid-auto-columns: 1fr;
     gap: 1px;
+    
+    >button:active{
+      transform: scale(0.9);
+      box-shadow: 0 0 10px rgba(79, 248, 163, 0.5);
+      background-color: rgba(79,248,79,0.5);
+    }
 
     > button {
       border: none;
@@ -74,7 +80,7 @@ const Wrapper = styled.div`
 
       &:nth-child(13) {
         grid-area: s;
-        background: #5C33BE;
+        background: var(--main-color-deep);
         color: white;
       }
     }
@@ -83,8 +89,10 @@ const Wrapper = styled.div`
 
 const InputPad = () => {
   const [amountNumber, _setAmountNumber] = useState('0')
+  const [clickedButton,setClickedButton] = useState('')
   const setAmountNumber = (n: string) => {
     const dotIndex = amountNumber.indexOf('.')
+    setClickedButton(n)
     if (n === '清空') {
       _setAmountNumber('0')
       return;
@@ -139,7 +147,7 @@ const InputPad = () => {
       <div className='buttons'>
         {inputNumberList.map(button =>
           <button key={button.text}
-            onClick={button.onClick}>
+            onClick={button.onClick} >
             {button.text}
           </button>
         )}

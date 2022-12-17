@@ -10,6 +10,7 @@ const Note=styled.div`
   }
   input{
     height: 100%;
+    color: var(--main-purple-light);
     border: none;
     flex-grow: 1;
     outline: none;
