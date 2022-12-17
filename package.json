@@ -2,7 +2,7 @@
   "name": "my-react-tally",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://daozhangchen.github.io/my-react-tally-web/",
+  "homepage": "https://deepblue-1314560368.cos-website.ap-guangzhou.myqcloud.com/",
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
