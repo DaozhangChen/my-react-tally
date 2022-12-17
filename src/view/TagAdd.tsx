@@ -58,6 +58,7 @@ const ListSection = styled.section`
     .selected{
       color: var(--green-deep);
       fill: var(--green-deep);
+      animation: pulses 2s infinite;
     }
     li{
       display: flex;
@@ -72,6 +73,17 @@ const ListSection = styled.section`
       }
     }
   }
+@keyframes pulses{
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 `
 type addBill = {
   name: string,
