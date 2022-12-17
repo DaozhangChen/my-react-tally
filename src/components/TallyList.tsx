@@ -12,6 +12,12 @@ const DateBar = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 14px;
+  .isOut{
+    color: #F84FA3;
+  }
+  .isIn{
+    color: var(--green-deep);
+  }
 `
 const List = styled.div`
   li {
@@ -65,7 +71,7 @@ const TallyList = (props: Props) => {
                             return <div key={bar.date}>
                                 <DateBar>
                                     <span>{bar.date}</span>
-                                    <span>总支出：{bar.balance}</span>
+                                    <span className={bar.balance>=0?'isIn':'isOut'}>总支出：{bar.balance}</span>
                                 </DateBar>
                                 {
                                     bills.filter(bill =>

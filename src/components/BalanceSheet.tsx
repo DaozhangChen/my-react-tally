@@ -49,6 +49,7 @@ const Income = styled.div`
     font-size: 20px;
     display: inline-block;
     overflow: scroll;
+    color: var(--green-deep);
   }
 `
 const Expend = styled.div`
@@ -62,6 +63,7 @@ const Expend = styled.div`
     width: 31vw;
     font-size: 20px;
     overflow: scroll;
+    color: #F84FA3;
   }
 `
 type Props = {

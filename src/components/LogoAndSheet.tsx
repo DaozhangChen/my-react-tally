@@ -19,6 +19,20 @@ const Wrapper=styled.div`
   h1{
     font-size: 28px;
   }
+  .pulsing{
+    animation: pulses 2s infinite;
+  }
+  @keyframes pulses{
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 `
 type Props={
     selected:Selected
@@ -28,8 +42,8 @@ type Props={
 const LogoAndSheet=(props:Props)=>{
     return(
         <Wrapper>
-            <Icon name='grapes'/>
-            <h1>青提记账</h1>
+            <Icon className='pulsing' name='grapes'/>
+            <h1 >青提记账</h1>
             <BalanceSheet
                 selected={props.selected}
                 setSelected={props.setSelected}

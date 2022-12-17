@@ -56,8 +56,8 @@ const ListSection = styled.section`
     flex-wrap: wrap;
     padding: 6px 0;
     .selected{
-      color: red;
-      fill: red;
+      color: var(--green-deep);
+      fill: var(--green-deep);
     }
     li{
       display: flex;
